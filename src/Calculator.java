@@ -42,6 +42,8 @@ public class Calculator {
                 case "/" -> result = division(a, b);
                 case ">" -> result = more(a, b);
                 case "<" -> result = smaller(a, b);
+                case ">=" -> result = moreOrEqual(a, b);
+                case "<=" -> result = lessOrEqual(a, b);
                 default -> {
                     System.out.println("operation don't found");
                     continue;
@@ -75,5 +77,13 @@ public class Calculator {
 
     private static String smaller(int a, int b){
         return String.valueOf(a < b);
+    }
+
+    private static String moreOrEqual(int a, int b){
+        return String.valueOf(a >= b);
+    }
+
+    private static String lessOrEqual(int a, int b){
+        return String.valueOf(a <= b);
     }
 }
