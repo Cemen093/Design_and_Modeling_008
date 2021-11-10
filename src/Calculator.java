@@ -62,6 +62,8 @@ public class Calculator {
     }
 
     private static String division(int a, int b){
-        return String.valueOf(a / b);
+        if (b != 0)
+            return String.valueOf(a / b);
+        return "result is not defined";
     }
 }
