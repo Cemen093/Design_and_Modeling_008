@@ -40,6 +40,8 @@ public class Calculator {
                 case "-" -> result = subtraction(a, b);
                 case "*" -> result = multiplication(a, b);
                 case "/" -> result = division(a, b);
+                case ">" -> result = more(a, b);
+                case "<" -> result = smaller(a, b);
                 default -> {
                     System.out.println("operation don't found");
                     continue;
@@ -65,5 +67,13 @@ public class Calculator {
         if (b != 0)
             return String.valueOf(a / b);
         return "result is not defined";
+    }
+
+    private static String more(int a, int b){
+        return String.valueOf(a > b);
+    }
+
+    private static String smaller(int a, int b){
+        return String.valueOf(a < b);
     }
 }
