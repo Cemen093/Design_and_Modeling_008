@@ -38,6 +38,8 @@ public class Calculator {
             switch (operation) {
                 case "+" -> result = addition(a, b);
                 case "-" -> result = subtraction(a, b);
+                case "*" -> result = multiplication(a, b);
+                case "/" -> result = division(a, b);
                 default -> {
                     System.out.println("operation don't found");
                     continue;
@@ -53,5 +55,13 @@ public class Calculator {
 
     private static String subtraction(int a, int b){
         return String.valueOf(a - b);
+    }
+
+    private static String multiplication(int a, int b){
+        return String.valueOf(a * b);
+    }
+
+    private static String division(int a, int b){
+        return String.valueOf(a / b);
     }
 }
