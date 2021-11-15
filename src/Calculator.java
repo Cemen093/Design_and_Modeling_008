@@ -11,28 +11,35 @@ public class Calculator {
 //        3.0.1 - добавлены действия >= и <=
                 Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        tho: while (true) {
             System.out.println("exit? y/n");
             if (scanner.nextLine().equals("y")){
                 System.out.println("By");
                 break;
             }
 
-            int a;
-            int b;
-            try {
-                System.out.print("input a >> ");
-                a = Integer.parseInt(scanner.nextLine());
+            int a = 0;
+            int b = 0;
+            String operation;
+            while (true) {
+                try {
+                    System.out.print("input a >> ");
+                    a = Integer.parseInt(scanner.nextLine());
 
-                System.out.print("input b >> ");
-                b = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException exception){
-                System.out.println("not a number");
-                continue;
+                    System.out.print("input operation >> ");
+                    operation = scanner.nextLine();
+                    if (operation.equals("!")){
+                        break;
+                    }
+
+                    System.out.print("input b >> ");
+                    b = Integer.parseInt(scanner.nextLine());
+
+                } catch (NumberFormatException exception) {
+                    System.out.println("not a number");
+                    continue tho;
+                }
             }
-
-                System.out.print("input operation >> ");
-                String operation = scanner.nextLine();
 
                 String result;
             switch (operation) {
@@ -44,6 +51,7 @@ public class Calculator {
                 case "<" -> result = smaller(a, b);
                 case ">=" -> result = moreOrEqual(a, b);
                 case "<=" -> result = lessOrEqual(a, b);
+                case "!" -> result = factorial(a);
                 default -> {
                     System.out.println("operation don't found");
                     continue;
@@ -85,5 +93,13 @@ public class Calculator {
 
     private static String lessOrEqual(int a, int b){
         return String.valueOf(a <= b);
+    }
+
+    private static String factorial(int a){
+        int result = 1;
+        for (int i = 1; i <= a; i++) {
+            result = result * i;
+        }
+        return String.valueOf(result);
     }
 }
